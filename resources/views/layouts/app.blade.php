@@ -12,6 +12,7 @@
     <link rel="icon" type="images/png" href="{{ asset('images/qr-code-name.svg') }}">
 
     <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.5/sweetalert2.min.css" />
 
     <!-- Font Awesome -->
