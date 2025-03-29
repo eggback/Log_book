@@ -23,3 +23,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
 
 Route::get('/form', [App\Http\Controllers\HomeController::class, 'form'])->name('form');
+Route::post('/create_profile', [App\Http\Controllers\HomeController::class, 'create_profile'])->name('create_profile');

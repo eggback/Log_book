@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('age')->nullable();
             $table->string('religion')->nullable();
             $table->string('branch')->nullable();
+            $table->enum('degree_level', ['ปริญญาตรี', 'ปริญญาโท',])->nullable();
             $table->string('student_id')->nullable();
             $table->enum('sector', ['ปกติ', 'พิเศษ',])->nullable();
             $table->enum('year_level', ['1', '2', '3', '4', '5'])->nullable();
