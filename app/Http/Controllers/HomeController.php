@@ -29,6 +29,30 @@ class HomeController extends Controller
         return view('home');
     }
 
+
+
+    public function location_details()
+    {
+        return view('Internship_record.location_details');
+    }
+    public function map_location()
+    {
+        return view('Internship_record.map_location');
+    }
+    public function summary_internship()
+    {
+        return view('Internship_record.summary_internship');
+    }
+    public function teacher_notes()
+    {
+        return view('Internship_record.teacher_notes');
+    }
+    public function work_day()
+    {
+        return view('Internship_record.work_day');
+    }
+
+
     public function admin()
     {
         $user = User::get();
@@ -40,6 +64,11 @@ class HomeController extends Controller
     {
         $user = Student_information::first(); // หรือ find($id) ถ้ามี id
         return view('form', compact('user'));
+    }
+    public function edit_form()
+    {
+        $user = Student_information::first(); // หรือ find($id) ถ้ามี id
+        return view('edit_form', compact('user'));
     }
     public function create_profile(Request $request)
     {
