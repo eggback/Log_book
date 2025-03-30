@@ -43,7 +43,7 @@
     <style>
         body {
             font-family: 'Anuphan', sans-serif !important;
-            /font-family: 'Bai Jamjuree', sans-serif !important;/
+            /* font-family: 'Bai Jamjuree', sans-serif; */
         }
     </style>
     <!-- Scripts -->
@@ -52,11 +52,12 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm navbar bg-dark border-bottom border-body"
+            data-bs-theme="dark">
+            <div class="container-fluid">
+                {{-- <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('images/logo_1.png') }}" alt="Logo">
+                </a> --}}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -72,6 +73,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -85,6 +87,31 @@
                                 </li>
                             @endif
                         @else
+
+{{--                         
+                            <li class="nav-item">
+                                <a class="nav-link glow-link" href="{{ route('admin') }}">หน้าหลัก</a>
+                            </li> --}}
+
+                            <li class="nav-item">
+                                <a class="nav-link glow-link" href="{{ route('admin') }}">ข้อมูลส่วนตัว</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link glow-link" href="{{ route('location_details') }}">รายละเอียดสถานที่ฝึกงาน</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link glow-link" href="{{ route('map_location') }}">แผนที่สถานที่ฝึกงาน</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link glow-link" href="{{ route('summary_internship') }}">บันทึกประจำวัน</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link glow-link" href="{{ route('teacher_notes') }}">บันทึกอาจารย์นิเทศก์</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link glow-link" href="{{ route('work_day') }}">สรุปผลการฝึกงาน</a>
+                            </li>
+                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -95,7 +122,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('ออกจากระบบ') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -109,7 +136,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

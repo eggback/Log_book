@@ -26,7 +26,7 @@
 
             <div class="card-body p-4 row">
 
-                <form action="{{ route('create_profile') }}" method="post" class="row">
+                <form action="{{ route('updatenewprofile', $editprofile->id) }}" method="post" class="row">
                     @csrf
                     <div class="form-group col-lg-2">
                         <label for="prefix_our" class="form-label">คำนำหน้า</label>
@@ -43,15 +43,19 @@
                     <div class="form-group col-lg-3">
                         <label for="name" class="form-label">ชื่อนักศึกษา</label>
                         <input type="text" class="form-control" id="name" name="name"
-                            placeholder="กรุณากรอกชื่อนักศึกษา">
+                            placeholder="กรุณากรอกชื่อนักศึกษา" value="{{ old('name', $editprofile->name) }}">
                     </div>
+
+                    {{-- <input type="text" name="product_name" id="product_name"
+                            class="form-control @error('product_name') is-invalid @enderror @if (!empty(old('product_name'))) is-valid @endif"
+                            value="{{ old('product_name', $edit->product_name) }}"> --}}
 
 {{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="last_name" class="form-label">นามสกุล</label>
                         <input type="text" class="form-control" id="last_name" name="last_name"
-                            placeholder="กรุณากรอกนามสกุล">
+                            placeholder="กรุณากรอกนามสกุล"value="{{ old('name', $editprofile->last_name) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -59,7 +63,7 @@
                     <div class="form-group col-lg-3">
                         <label for="name_eng" class="form-label">ชื่อภาษาอังกฤษ(ตัวพิมพ์ใหญ่)</label>
                         <input type="text" class="form-control" id="name_eng" name="name_eng"
-                            placeholder="กรุณากรอกชื่อภาษาอังกฤษ">
+                            placeholder="กรุณากรอกชื่อภาษาอังกฤษ"  value="{{ old('name', $editprofile->name_eng) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -68,7 +72,7 @@
                         <label for="birthday" class="form-label">วันเกิด</label>
                         <input type="text"
                             class="form-control datepicker-his {{ $errors->has('birthday') ? 'is-invalid' : '' }}"
-                            value="{{ old('birthday') ? old('birthday') : '' }}" id="birthday" name="birthday">
+                            value="{{ date('d-m-Y', strtotime($editprofile->birthday)) }}" id="birthday" name="birthday">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -76,7 +80,7 @@
                     <div class="form-group col-lg-2">
                         <label for="age" class="form-label">อายุ</label>
                         <input type="text" class="form-control" id="age" name="age"
-                            placeholder="กรุณากรอกอายุ">
+                            placeholder="กรุณากรอกอายุ"value="{{ old('name', $editprofile->age) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -84,7 +88,7 @@
                     <div class="form-group col-lg-2">
                         <label for="religion" class="form-label">นับถือศาสนา</label>
                         <input type="text" class="form-control" id="religion" name="religion"
-                            placeholder="กรุณากรอกศาสนา">
+                            placeholder="กรุณากรอกศาสนา"value="{{ old('name', $editprofile->religion) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -92,7 +96,7 @@
                     <div class="form-group col-lg-3">
                         <label for="branch" class="form-label">สาขาวิชา</label>
                         <input type="text" class="form-control" id="branch" name="branch"
-                            placeholder="กรุณากรอกสาขาวิชา">
+                            placeholder="กรุณากรอกสาขาวิชา"value="{{ old('name', $editprofile->branch) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -110,7 +114,7 @@
                     <div class="form-group col-lg-2">
                         <label for="student_id" class="form-label">รหัสนักศึกษา</label>
                         <input type="text" class="form-control" id="student_id" name="student_id"
-                            placeholder="กรุณากรอกรหัสนักศึกษา">
+                            placeholder="กรุณากรอกรหัสนักศึกษา"value="{{ old('name', $editprofile->student_id) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -141,7 +145,7 @@
                     <div class="form-group col-lg-2">
                         <label for="group" class="form-label">หมู่เรียนที่</label>
                         <input type="text" class="form-control" id="group" name="group"
-                            placeholder="กรุณากรอกหมู่เรียนที่">
+                            placeholder="กรุณากรอกหมู่เรียนที่"value="{{ old('name', $editprofile->group) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -149,7 +153,7 @@
                     <div class="form-group col-lg-2">
                         <label for="term_year" class="form-label">ภาคเรียนที่</label>
                         <input type="text" class="form-control" id="term_year" name="term_year"
-                            placeholder="กรุณากรอกภาคเรียนที่">
+                            placeholder="กรุณากรอกภาคเรียนที่"value="{{ old('name', $editprofile->term_year) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -157,7 +161,7 @@
                     <div class="form-group col-lg-2">
                         <label for="year" class="form-label">ปีการศึกษา</label>
                         <input type="text" class="form-control" id="year" name="year"
-                            placeholder="กรุณากรอกปีการศึกษา">
+                            placeholder="กรุณากรอกปีการศึกษา"value="{{ old('name', $editprofile->year) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -165,7 +169,7 @@
                     <div class="form-group col-lg-4">
                         <label for="father_name" class="form-label">ชื่อบิดา</label>
                         <input type="text" class="form-control" id="father_name" name="father_name"
-                            placeholder="กรุณากรอกชื่อบิดา">
+                            placeholder="กรุณากรอกชื่อบิดา"value="{{ old('name', $editprofile->father_name) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -173,7 +177,7 @@
                     <div class="form-group col-lg-2">
                         <label for="father_occupation" class="form-label">อาชีพบิดา</label>
                         <input type="text" class="form-control" id="father_occupation" name="father_occupation"
-                            placeholder="กรุณากรอกอาชีพบิดา">
+                            placeholder="กรุณากรอกอาชีพบิดา"value="{{ old('name', $editprofile->father_occupation) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -181,7 +185,7 @@
                     <div class="form-group col-lg-4">
                         <label for="mother_name" class="form-label">ชื่อมารดา</label>
                         <input type="text" class="form-control" id="mother_name" name="mother_name"
-                            placeholder="กรุณากรอกชื่อมารดา">
+                            placeholder="กรุณากรอกชื่อมารดา"value="{{ old('name', $editprofile->mother_name) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -189,7 +193,7 @@
                     <div class="form-group col-lg-2">
                         <label for="mother_occupation" class="form-label">อาชีพมารดา</label>
                         <input type="text" class="form-control" id="mother_occupation" name="mother_occupation"
-                            placeholder="กรุณากรอกอาชีพมารดา">
+                            placeholder="กรุณากรอกอาชีพมารดา"value="{{ old('name', $editprofile->mother_occupation) }}">
                     </div>
 
 {{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}
@@ -209,7 +213,7 @@
                     <div class="form-group col-lg-2">
                         <label for="house_number" class="form-label">บ้านเลขที่</label>
                         <input type="text" class="form-control" id="house_number" name="house_number"
-                            placeholder="กรุณากรอกบ้านเลขที่">
+                            placeholder="กรุณากรอกบ้านเลขที่"value="{{ old('name', $editprofile->house_number) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -217,7 +221,7 @@
                     <div class="form-group col-lg-2">
                         <label for="home_group" class="form-label">หมู่</label>
                         <input type="text" class="form-control" id="home_group" name="home_group"
-                            placeholder="กรุณากรอกหมู่">
+                            placeholder="กรุณากรอกหมู่"value="{{ old('name', $editprofile->home_group) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -225,7 +229,7 @@
                     <div class="form-group col-lg-2">
                         <label for="alley" class="form-label">ซอย</label>
                         <input type="text" class="form-control" id="alley" name="alley"
-                            placeholder="กรุณากรอกซอย">
+                            placeholder="กรุณากรอกซอย"value="{{ old('name', $editprofile->alley) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -233,7 +237,7 @@
                     <div class="form-group col-lg-3">
                         <label for="road" class="form-label">ถนน</label>
                         <input type="text" class="form-control" id="road" name="road"
-                            placeholder="กรุณากรอกถนน">
+                            placeholder="กรุณากรอกถนน"value="{{ old('name', $editprofile->road) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -241,7 +245,7 @@
                     <div class="form-group col-lg-3">
                         <label for="subdistrict" class="form-label">แขวง</label>
                         <input type="text" class="form-control" id="subdistrict" name="subdistrict"
-                            placeholder="กรุณากรอกแขวง">
+                            placeholder="กรุณากรอกแขวง"value="{{ old('name', $editprofile->subdistrict) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -249,7 +253,7 @@
                     <div class="form-group col-lg-3">
                         <label for="district" class="form-label">อำเภอ</label>
                         <input type="text" class="form-control" id="district" name="district"
-                            placeholder="กรุณากรอกอำเภอ">
+                            placeholder="กรุณากรอกอำเภอ"value="{{ old('name', $editprofile->district) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -257,7 +261,7 @@
                     <div class="form-group col-lg-3">
                         <label for="province" class="form-label">จังหวัด</label>
                         <input type="text" class="form-control" id="province" name="province"
-                            placeholder="กรุณากรอกจังหวัด">
+                            placeholder="กรุณากรอกจังหวัด"value="{{ old('name', $editprofile->province) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -265,7 +269,7 @@
                     <div class="form-group col-lg-4">
                         <label for="zip_code" class="form-label">รหัสไปรษณีย์</label>
                         <input type="text" class="form-control" id="zip_code" name="zip_code"
-                            placeholder="กรุณากรอกรหัสไปรษณีย์">
+                            placeholder="กรุณากรอกรหัสไปรษณีย์"value="{{ old('name', $editprofile->zip_code) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -273,7 +277,7 @@
                     <div class="form-group col-lg-4">
                         <label for="mobile_number" class="form-label">โทรศัพท์</label>
                         <input type="text" class="form-control" id="mobile_number" name="mobile_number"
-                            placeholder="กรุณากรอกโทรศัพท์">
+                            placeholder="กรุณากรอกโทรศัพท์"value="{{ old('name', $editprofile->mobile_number) }}">
                     </div>
 
 {{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}
@@ -293,7 +297,7 @@
                     <div class="form-group col-lg-2">
                         <label for="house_number_2" class="form-label">บ้านเลขที่</label>
                         <input type="text" class="form-control" id="house_number_2" name="house_number_2"
-                            placeholder="กรุณากรอกบ้านเลขที่">
+                            placeholder="กรุณากรอกบ้านเลขที่"value="{{ old('name', $editprofile->house_number_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -301,7 +305,7 @@
                     <div class="form-group col-lg-2">
                         <label for="home_group_2" class="form-label">หมู่</label>
                         <input type="text" class="form-control" id="home_group_2" name="home_group_2"
-                            placeholder="กรุณากรอกหมู่">
+                            placeholder="กรุณากรอกหมู่"value="{{ old('name', $editprofile->home_group_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -309,7 +313,7 @@
                     <div class="form-group col-lg-2">
                         <label for="alley_2" class="form-label">ซอย</label>
                         <input type="text" class="form-control" id="alley_2" name="alley_2"
-                            placeholder="กรุณากรอกซอย">
+                            placeholder="กรุณากรอกซอย"value="{{ old('name', $editprofile->alley_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -317,7 +321,7 @@
                     <div class="form-group col-lg-3">
                         <label for="road_2" class="form-label">ถนน</label>
                         <input type="text" class="form-control" id="road_2" name="road_2"
-                            placeholder="กรุณากรอกถนน">
+                            placeholder="กรุณากรอกถนน"value="{{ old('name', $editprofile->road_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -325,7 +329,7 @@
                     <div class="form-group col-lg-3">
                         <label for="subdistrict_2" class="form-label">แขวง</label>
                         <input type="text" class="form-control" id="subdistrict_2" name="subdistrict_2"
-                            placeholder="กรุณากรอกชื่อ-นามสกุล">
+                            placeholder="กรุณากรอกชื่อ-นามสกุล"value="{{ old('name', $editprofile->subdistrict_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -333,7 +337,7 @@
                     <div class="form-group col-lg-3">
                         <label for="district_2" class="form-label">อำเภอ</label>
                         <input type="text" class="form-control" id="district_2" name="district_2"
-                            placeholder="กรุณากรอกอำเภอ">
+                            placeholder="กรุณากรอกอำเภอ"value="{{ old('name', $editprofile->district_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -341,7 +345,7 @@
                     <div class="form-group col-lg-3">
                         <label for="province_2" class="form-label">จังหวัด</label>
                         <input type="text" class="form-control" id="province_2" name="province_2"
-                            placeholder="กรุณากรอกจังหวัด">
+                            placeholder="กรุณากรอกจังหวัด"value="{{ old('name', $editprofile->province_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -349,7 +353,7 @@
                     <div class="form-group col-lg-4">
                         <label for="zip_code_2" class="form-label">รหัสไปรษณีย์</label>
                         <input type="text" class="form-control" id="zip_code_2" name="zip_code_2"
-                            placeholder="กรุณากรอกรหัสไปรษณีย์">
+                            placeholder="กรุณากรอกรหัสไปรษณีย์"value="{{ old('name', $editprofile->zip_code_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -357,7 +361,7 @@
                     <div class="form-group col-lg-4">
                         <label for="mobile_number_2" class="form-label">โทรศัพท์</label>
                         <input type="text" class="form-control" id="mobile_number_2" name="mobile_number_2"
-                            placeholder="กรุณากรอกโทรศัพท์">
+                            placeholder="กรุณากรอกโทรศัพท์"value="{{ old('name', $editprofile->mobile_number_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -365,7 +369,7 @@
                     <div class="form-group col-lg-4">
                         <label for="mobile_number_2" class="form-label">email</label>
                         <input type="text" class="form-control" id="mobile_number_2" name="mobile_number_2"
-                            placeholder="กรุณากรอกemail">
+                            placeholder="กรุณากรอกemail"value="{{ old('name', $editprofile->mobile_number_2) }}">
                     </div>
 
 {{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}
@@ -385,7 +389,7 @@
                     <div class="form-group col-lg-3">
                         <label for="internship_location" class="form-label">ชื่อสถานที่ฝึกงาน</label>
                         <input type="text" class="form-control" id="internship_location" name="internship_location"
-                            placeholder="กรุณากรอกชื่อสถานที่ฝึกงาน">
+                            placeholder="กรุณากรอกชื่อสถานที่ฝึกงาน"value="{{ old('name', $editprofile->internship_location) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -393,7 +397,7 @@
                     <div class="form-group col-lg-3">
                         <label for="internship_number" class="form-label">ตั้งอยู่เลขที่</label>
                         <input type="text" class="form-control" id="internship_number" name="internship_number"
-                            placeholder="กรุณากรอกตั้งอยู่เลขที่">
+                            placeholder="กรุณากรอกตั้งอยู่เลขที่"value="{{ old('name', $editprofile->internship_number) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -401,7 +405,7 @@
                     <div class="form-group col-lg-2">
                         <label for="internship_group" class="form-label">หมู่</label>
                         <input type="text" class="form-control" id="internship_group" name="internship_group"
-                            placeholder="กรุณากรอกหมู่">
+                            placeholder="กรุณากรอกหมู่"value="{{ old('name', $editprofile->internship_group) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -409,7 +413,7 @@
                     <div class="form-group col-lg-2">
                         <label for="internship_alley" class="form-label">ซอย</label>
                         <input type="text" class="form-control" id="internship_alley" name="internship_alley"
-                            placeholder="กรุณากรอกซอย">
+                            placeholder="กรุณากรอกซอย"value="{{ old('name', $editprofile->internship_alley) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -417,7 +421,7 @@
                     <div class="form-group col-lg-3">
                         <label for="internship_road" class="form-label">ถนน</label>
                         <input type="text" class="form-control" id="internship_road" name="internship_road"
-                            placeholder="กรุณากรอกถนน">
+                            placeholder="กรุณากรอกถนน"value="{{ old('name', $editprofile->internship_road) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -425,7 +429,7 @@
                     <div class="form-group col-lg-3">
                         <label for="internship_subdistrict" class="form-label">แขวง</label>
                         <input type="text" class="form-control" id="internship_subdistrict"
-                            name="internship_subdistrict" placeholder="กรุณากรอกแขวง">
+                            name="internship_subdistrict" placeholder="กรุณากรอกแขวง"value="{{ old('name', $editprofile->internship_subdistrict) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -433,7 +437,7 @@
                     <div class="form-group col-lg-3">
                         <label for="internship_district" class="form-label">อำเภอ</label>
                         <input type="text" class="form-control" id="internship_district" name="internship_district"
-                            placeholder="กรุณากรอกอำเภอ">
+                            placeholder="กรุณากรอกอำเภอ"value="{{ old('name', $editprofile->internship_district) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -441,7 +445,7 @@
                     <div class="form-group col-lg-3">
                         <label for="internship_province" class="form-label">จังหวัด</label>
                         <input type="text" class="form-control" id="internship_province" name="internship_province"
-                            placeholder="กรุณากรอกจังหวัด">
+                            placeholder="กรุณากรอกจังหวัด"value="{{ old('name', $editprofile->internship_province) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -449,7 +453,7 @@
                     <div class="form-group col-lg-4">
                         <label for="internship_zip_code" class="form-label">รหัสไปรษณีย์</label>
                         <input type="text" class="form-control" id="internship_zip_code" name="internship_zip_code"
-                            placeholder="กรุณากรอกรหัสไปรษณีย์">
+                            placeholder="กรุณากรอกรหัสไปรษณีย์"value="{{ old('name', $editprofile->internship_zip_code) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}
@@ -457,7 +461,7 @@
                     <div class="form-group col-lg-4">
                         <label for="internship_mobile_number_2" class="form-label">โทรศัพท์</label>
                         <input type="text" class="form-control" id="internship_mobile_number_2"
-                            name="internship_mobile_number_2" placeholder="กรุณากรอกโทรศัพท์">
+                            name="internship_mobile_number_2" placeholder="กรุณากรอกโทรศัพท์"value="{{ old('name', $editprofile->internship_mobile_number_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -466,7 +470,7 @@
                         <label for="date_start" class="form-label">ช่วงเวลาที่ฝึกงาน</label>
                         <input type="text"
                             class="form-control datepicker-his {{ $errors->has('date_start') ? 'is-invalid' : '' }}"
-                            value="{{ old('date_start') ? old('date_start') : '' }}" id="date_start" name="date_start">
+                            value="{{ date('d-m-Y', strtotime($editprofile->date_start)) }}" id="date_start" name="date_start">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -475,7 +479,7 @@
                         <label for="date_finish" class="form-label">ถึงวันที่</label>
                         <input type="text"
                             class="form-control datepicker-his {{ $errors->has('date_finish') ? 'is-invalid' : '' }}"
-                            value="{{ old('date_finish') ? old('date_finish') : '' }}" id="date_finish" name="date_finish">
+                            value="{{ date('d-m-Y', strtotime($editprofile->date_finish)) }}" id="date_finish" name="date_finish">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -483,7 +487,7 @@
                     <div class="form-group col-lg-4">
                         <label for="controller_name" class="form-label">ชื่อผู้ควบคุมการฝึก</label>
                         <input type="text" class="form-control" id="controller_name" name="controller_name"
-                            placeholder="กรุณากรอกชื่อผู้ควบคุมการฝึก">
+                            placeholder="กรุณากรอกชื่อผู้ควบคุมการฝึก"value="{{ old('name', $editprofile->controller_name) }}">
                     </div>
 
 {{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}
@@ -502,7 +506,7 @@
                     <div class="form-group col-lg-5">
                         <label for="current_place_of_work" class="form-label">สถานที่ทำงานปัจจุบัน</label>
                         <input type="text" class="form-control" id="current_place_of_work"
-                            name="current_place_of_work" placeholder="กรุณากรอกสถานที่ทำงานปัจจุบัน">
+                            name="current_place_of_work" placeholder="กรุณากรอกสถานที่ทำงานปัจจุบัน"value="{{ old('name', $editprofile->current_place_of_work) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -510,7 +514,7 @@
                     <div class="form-group col-lg-3">
                         <label for="phone_internship" class="form-label">โทรศัพท์</label>
                         <input type="text" class="form-control" id="phone_internship" name="phone_internship"
-                            placeholder="กรุณากรอกโทรศัพท์">
+                            placeholder="กรุณากรอกโทรศัพท์"value="{{ old('name', $editprofile->phone_internship) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -518,7 +522,7 @@
                     <div class="form-group col-lg-3">
                         <label for="fax" class="form-label">โทรสาร</label>
                         <input type="text" class="form-control" id="fax" name="fax"
-                            placeholder="กรุณากรอกโทรสาร">
+                            placeholder="กรุณากรอกโทรสาร"value="{{ old('name', $editprofile->fax) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -526,7 +530,7 @@
                     <div class="form-group col-lg-15">
                         <label for="work_experience" class="form-label">ประสบการณ์ในการทำงาน</label>
                         <input type="text" class="form-control" id="work_experience" name="work_experience"
-                            placeholder="กรุณากรอกประสบการณ์ในการทำงาน">
+                            placeholder="กรุณากรอกประสบการณ์ในการทำงาน"value="{{ old('name', $editprofile->work_experience) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -534,7 +538,7 @@
                     <div class="form-group col-lg-15">
                         <label for="talent" class="form-label">ความรู้ความสามารถพิ้ศษ</label>
                         <input type="text" class="form-control" id="talent" name="talent"
-                            placeholder="กรุณากรอกความรู้ความสามารถพิ้ศษ">
+                            placeholder="กรุณากรอกความรู้ความสามารถพิ้ศษ"value="{{ old('name', $editprofile->talent) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -542,7 +546,7 @@
                     <div class="form-group col-lg-15">
                         <label for="special_interests" class="form-label">ความสนใจพิเศษ</label>
                         <input type="text" class="form-control" id="special_interests" name="special_interests"
-                            placeholder="กรุณากรอกความสนใจพิเศษ">
+                            placeholder="กรุณากรอกความสนใจพิเศษ"value="{{ old('name', $editprofile->special_interests) }}">
                     </div>
 
 {{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}                 
@@ -572,7 +576,7 @@
                     <div class="form-group col-lg-4">
                         <label for="husband_wife_name" class="form-label">ชื่อสามี/ภรรยา</label>
                         <input type="text" class="form-control" id="husband_wife_name" name="husband_wife_name"
-                            placeholder="กรุณากรอกชื่อสามี/ภรรยา">
+                            placeholder="กรุณากรอกชื่อสามี/ภรรยา"value="{{ old('name', $editprofile->husband_wife_name) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -580,7 +584,7 @@
                     <div class="form-group col-lg-3">
                         <label for="husband_wife_occupation" class="form-label">อาชีพ</label>
                         <input type="text" class="form-control" id="husband_wife_occupation"
-                            name="husband_wife_occupation" placeholder="กรุณากรอกอาชีพ">
+                            name="husband_wife_occupation" placeholder="กรุณากรอกอาชีพ"value="{{ old('name', $editprofile->husband_wife_occupation) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -588,7 +592,7 @@
                     <div class="form-group col-lg-1">
                         <label for="number_of_children" class="form-label">จำนวนบุตร</label>
                         <input type="text" class="form-control" id="number_of_children" name="number_of_children"
-                            placeholder="กรุณากรอกจำนวนบุตร">
+                            placeholder="กรุณากรอกจำนวนบุตร"value="{{ old('name', $editprofile->number_of_children) }}">
                     </div>
 
 {{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}                 
@@ -607,7 +611,7 @@
                     <div class="form-group col-lg-4">
                         <label for="emergency_contact_person" class="form-label">บุคคลที่สามารถติดต่อได้</label>
                         <input type="text" class="form-control" id="emergency_contact_person"
-                            name="emergency_contact_person" placeholder="กรุณากรอกบุคคลที่สามารถติดต่อได้">
+                            name="emergency_contact_person" placeholder="กรุณากรอกบุคคลที่สามารถติดต่อได้"value="{{ old('name', $editprofile->emergency_contact_person) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -615,7 +619,7 @@
                     <div class="form-group col-lg-4">
                         <label for="emergency_contact_name" class="form-label">ที่อยู่</label>
                         <input type="text" class="form-control" id="emergency_contact_name"
-                            name="emergency_contact_name" placeholder="กรุณากรอกที่อยู่">
+                            name="emergency_contact_name" placeholder="กรุณากรอกที่อยู่"value="{{ old('name', $editprofile->emergency_contact_name) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -623,7 +627,7 @@
                     <div class="form-group col-lg-4">
                         <label for="emergency_contact_phone" class="form-label">โทรศัพท์</label>
                         <input type="text" class="form-control" id="emergency_contact_phone"
-                            name="emergency_contact_phone" placeholder="กรุณากรอกโทรศัพท์">
+                            name="emergency_contact_phone" placeholder="กรุณากรอกโทรศัพท์"value="{{ old('name', $editprofile->emergency_contact_phone) }}">
                     </div>
 
 {{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}                 
@@ -642,7 +646,7 @@
                     <div class="form-group col-lg-5">
                         <label for="teacher_name" class="form-label"></label>
                         <input type="text" class="form-control" id="teacher_name" name="teacher_name"
-                            placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์">
+                            placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์"value="{{ old('name', $editprofile->teacher_name) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -650,7 +654,7 @@
                     <div class="form-group col-lg-5">
                         <label for="teacher_name_2" class="form-label"></label>
                         <input type="text" class="form-control" id="teacher_name_2" name="teacher_name_2"
-                            placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์">
+                            placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์"value="{{ old('name', $editprofile->teacher_name_2) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -658,7 +662,7 @@
                     <div class="form-group col-lg-5">
                         <label for="teacher_name_3" class="form-label"></label>
                         <input type="text" class="form-control" id="teacher_name_3" name="teacher_name_3"
-                            placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์">
+                            placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์"value="{{ old('name', $editprofile->teacher_name_3) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -666,7 +670,7 @@
                     <div class="form-group col-lg-5">
                         <label for="teacher_name_4" class="form-label"></label>
                         <input type="text" class="form-control" id="teacher_name_4" name="teacher_name_3"
-                            placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์">
+                            placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์"value="{{ old('name', $editprofile->teacher_name_4) }}">
                     </div>
 
 {{-- -------------------------------------------------- --}}                    
@@ -674,13 +678,14 @@
                     <div class="form-group col-lg-5">
                         <label for="teacher_department" class="form-label">ชื่อผู้นิเทศประจำหน่วยงาน</label>
                         <input type="text" class="form-control" id="teacher_department" name="teacher_department"
-                            placeholder="กรุณากรอกชื่อผู้นิเทศประจำหน่วยงาน">
+                            placeholder="กรุณากรอกชื่อผู้นิเทศประจำหน่วยงาน"value="{{ old('name', $editprofile->teacher_department) }}">
                     </div>
 
 {{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}                 
 
-                    <div class="form-group col-lg-12">
-                        <button type="submit" class="btn btn-dark float-end" for="form-group-input">Send</button>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                        <a href="{{ route('admin') }}" class="btn btn-secondary" style="margin-left: 10px;">Back</a>
                     </div>
 
 

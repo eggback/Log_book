@@ -679,9 +679,12 @@
 
 {{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}                 
 
-                    <div class="form-group col-lg-12">
-                        <button type="submit" class="btn btn-dark float-end" for="form-group-input">Send</button>
+                    
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                        <a href="{{ route('admin') }}" class="btn btn-secondary" style="margin-left: 10px;">Back</a>
                     </div>
+
 
 
 
