@@ -85,12 +85,89 @@ class HomeController extends Controller
             'father_occupation' => $request->father_occupation,
             'mother_name' => $request->mother_name,
             'mother_occupation' => $request->mother_occupation,
+// ---------------------------------------------------------------------------------------------------------------------------------------------------
+            // ภูมิลำเนา
+            'house_number' => $request->house_number,
+            'home_group' => $request->home_group,
+            'alley' => $request->alley, 
+            'road' => $request->road,
+            'subdistrict' => $request->subdistrict,
+            'district' => $request->district,
+            'province' => $request->province,
+            'zip_code' => $request->zip_code,
+            'mobile_number' => $request->mobile_number,
+// ---------------------------------------------------------------------------------------------------------------------------------------------------
+            // ที่อยู่ปัจจุบัน
+            'house_number_2' => $request->house_number_2,
+            'home_group_2' => $request->home_group_2,
+            'alley_2' => $request->alley_2, 
+            'road_2' => $request->road_2,
+            'subdistrict_2' => $request->subdistrict_2,
+            'district_2' => $request->district_2,
+            'province_2' => $request->province_2,
+            'zip_code_2' => $request->zip_code_2,
+            'mobile_number_2' => $request->mobile_number_2,
+            'emall' => $request->emall,
+// ---------------------------------------------------------------------------------------------------------------------------------------------------
+            // สถานที่ฝึกงาน
+            'internship_location' => $request->internship_location,
+            'internship_number' => $request->internship_number,
+            'internship_group' => $request->internship_group, 
+            'internship_alley' => $request->internship_alley,
+            'internship_road' => $request->internship_road,
+            'internship_subdistrict' => $request->internship_subdistrict,
+            'internship_district' => $request->internship_district,
+            'internship_province' => $request->internship_province,
+            'internship_zip_code' => $request->internship_zip_code,
+            'internship_mobile_number_2' => $request->internship_mobile_number_2,
+            'date_start' => Carbon::createFromFormat('d/m/Y', $request->date_start)->format('Y-m-d'),
+            'date_finish' => Carbon::createFromFormat('d/m/Y', $request->date_finish)->format('Y-m-d'),
+            'controller_name' => $request->controller_name,
+// ---------------------------------------------------------------------------------------------------------------------------------------------------
+             // ข้อมูลการทำงาน
+            'current_place_of_work' => $request->current_place_of_work,
+            'phone_internship' => $request->phone_internship,
+            'fax' => $request->fax, 
+            'work_experience' => $request->work_experience,
+            'talent' => $request->talent,
+            'special_interests' => $request->special_interests,
+// ---------------------------------------------------------------------------------------------------------------------------------------------------
+             // สถานภาพ
+            'status' => $request->status,
+            'husband_wife_name' => $request->husband_wife_name,
+            'husband_wife_occupation' => $request->husband_wife_occupation, 
+            'number_of_children' => $request->number_of_children,
+// ---------------------------------------------------------------------------------------------------------------------------------------------------
+             // กรณีฉุกเฉิน
+            'emergency_contact_person' => $request->emergency_contact_person,
+            'emergency_contact_name' => $request->emergency_contact_name, 
+            'emergency_contact_phone' => $request->emergency_contact_phone,
+// ---------------------------------------------------------------------------------------------------------------------------------------------------
+            // ชื่ออาจารย์นิเทศก์
+            'teacher_name' => $request->teacher_name,
+            'teacher_name_2' => $request->teacher_name_2,
+            'teacher_name_3' => $request->teacher_name_3, 
+            'teacher_name_4' => $request->teacher_name_4,
+            'teacher_department' => $request->teacher_department,
+
         ];
+        
+         Student_information::create($input_profile);
+        // dd($input_profile);
 
-        dd($input_profile);
-
-        return redirect()->route('page');
+        
+        return redirect()->route('form');
     }
+
+
+
+
+
+
+
+
+
+
     public function edit($id)
     {
         $user = User::all()->find($id);

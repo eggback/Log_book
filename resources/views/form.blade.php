@@ -19,12 +19,10 @@
         <br>
         <div class="card shadow-sm rounded-3 my-auto col-md-11 mx-auto bg-white">
 
-
+{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}
             <div class="card-header">
                 <h5>ข้อมูลส่วนตัว</h5>
             </div>
-
-
 
             <div class="card-body p-4 row">
 
@@ -40,6 +38,7 @@
                         </select>
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="name" class="form-label">ชื่อนักศึกษา</label>
@@ -47,6 +46,7 @@
                             placeholder="กรุณากรอกชื่อนักศึกษา">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="last_name" class="form-label">นามสกุล</label>
@@ -54,6 +54,7 @@
                             placeholder="กรุณากรอกนามสกุล">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="name_eng" class="form-label">ชื่อภาษาอังกฤษ(ตัวพิมพ์ใหญ่)</label>
@@ -61,6 +62,7 @@
                             placeholder="กรุณากรอกชื่อภาษาอังกฤษ">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="birthday" class="form-label">วันเกิด</label>
@@ -69,6 +71,7 @@
                             value="{{ old('birthday') ? old('birthday') : '' }}" id="birthday" name="birthday">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="age" class="form-label">อายุ</label>
@@ -76,6 +79,7 @@
                             placeholder="กรุณากรอกอายุ">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="religion" class="form-label">นับถือศาสนา</label>
@@ -83,6 +87,7 @@
                             placeholder="กรุณากรอกศาสนา">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="branch" class="form-label">สาขาวิชา</label>
@@ -90,6 +95,7 @@
                             placeholder="กรุณากรอกสาขาวิชา">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="degree_level" class="form-label">ระดับ</label>
@@ -99,29 +105,62 @@
                         </select>
                     </div>
 
+{{-- -------------------------------------------------- --}}
+
                     <div class="form-group col-lg-2">
                         <label for="student_id" class="form-label">รหัสนักศึกษา</label>
                         <input type="text" class="form-control" id="student_id" name="student_id"
                             placeholder="กรุณากรอกรหัสนักศึกษา">
                     </div>
 
-
+{{-- -------------------------------------------------- --}}
+                    
                     <div class="form-group col-lg-2">
-                        <label for="group" class="form-label">ภาค</label>
-                        <select id="group" class="form-control" onchange="onSelectOur()">
-                            <option value="" selected disabled>เลือกภาคการศึกษา</option>
-                            <option value="ปกติ">ปกติ</option>
-                            <option value="พิเศษ">พิเศษ</option>
+                        <label for="sector" class="form-label">ภาค</label>
+                        <select name="sector" id="sector" class="form-control">
+                            <option value="ปกติ" @if ($user->sector == 'ปกติ') selected @endif>ปกติ</option>
+                            <option value="พิเศษ" @if ($user->sector == 'พิเศษ') selected @endif>พิเศษ</option>
                         </select>
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
-                        <label for="term_year" class="form-label">ปีที่/รุ่นที่</label>
-                        <input type="text" class="form-control" id="term_year" name="term_year"
-                            placeholder="กรุณากรอกปีที่/รุ่นที่">
+                        <label for="year_level" class="form-label">ปีที่/รุ่นที่</label>
+                        <select name="year_level" id="year_level" class="form-control">
+                            <option value="1" @if ($user->year_level == '1') selected @endif>1</option>
+                            <option value="2" @if ($user->year_level == '2') selected @endif>2</option>
+                            <option value="3" @if ($user->year_level == '3') selected @endif>3</option>
+                            <option value="4" @if ($user->year_level == '4') selected @endif>4</option>
+                            <option value="5" @if ($user->year_level == '5') selected @endif>5</option>
+                        </select>
                     </div>
 
+{{-- -------------------------------------------------- --}}
+
+                    <div class="form-group col-lg-2">
+                        <label for="group" class="form-label">หมู่เรียนที่</label>
+                        <input type="text" class="form-control" id="group" name="group"
+                            placeholder="กรุณากรอกหมู่เรียนที่">
+                    </div>
+
+{{-- -------------------------------------------------- --}}
+
+                    <div class="form-group col-lg-2">
+                        <label for="term_year" class="form-label">ภาคเรียนที่</label>
+                        <input type="text" class="form-control" id="term_year" name="term_year"
+                            placeholder="กรุณากรอกภาคเรียนที่">
+                    </div>
+
+{{-- -------------------------------------------------- --}}
+
+                    <div class="form-group col-lg-2">
+                        <label for="year" class="form-label">ปีการศึกษา</label>
+                        <input type="text" class="form-control" id="year" name="year"
+                            placeholder="กรุณากรอกปีการศึกษา">
+                    </div>
+
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-4">
                         <label for="father_name" class="form-label">ชื่อบิดา</label>
@@ -129,6 +168,7 @@
                             placeholder="กรุณากรอกชื่อบิดา">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="father_occupation" class="form-label">อาชีพบิดา</label>
@@ -136,6 +176,7 @@
                             placeholder="กรุณากรอกอาชีพบิดา">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-4">
                         <label for="mother_name" class="form-label">ชื่อมารดา</label>
@@ -143,6 +184,7 @@
                             placeholder="กรุณากรอกชื่อมารดา">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="mother_occupation" class="form-label">อาชีพมารดา</label>
@@ -150,7 +192,7 @@
                             placeholder="กรุณากรอกอาชีพมารดา">
                     </div>
 
-
+{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}
 
 
                     <br>
@@ -162,6 +204,7 @@
                         <h5>ภูมิลำเนาเดิม</h5>
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="house_number" class="form-label">บ้านเลขที่</label>
@@ -169,6 +212,7 @@
                             placeholder="กรุณากรอกบ้านเลขที่">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="home_group" class="form-label">หมู่</label>
@@ -176,6 +220,7 @@
                             placeholder="กรุณากรอกหมู่">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="alley" class="form-label">ซอย</label>
@@ -183,6 +228,7 @@
                             placeholder="กรุณากรอกซอย">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="road" class="form-label">ถนน</label>
@@ -190,6 +236,7 @@
                             placeholder="กรุณากรอกถนน">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="subdistrict" class="form-label">แขวง</label>
@@ -197,27 +244,40 @@
                             placeholder="กรุณากรอกแขวง">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-3">
                         <label for="district" class="form-label">อำเภอ</label>
                         <input type="text" class="form-control" id="district" name="district"
                             placeholder="กรุณากรอกอำเภอ">
                     </div>
+
+{{-- -------------------------------------------------- --}}
+
                     <div class="form-group col-lg-3">
                         <label for="province" class="form-label">จังหวัด</label>
                         <input type="text" class="form-control" id="province" name="province"
                             placeholder="กรุณากรอกจังหวัด">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-4">
                         <label for="zip_code" class="form-label">รหัสไปรษณีย์</label>
                         <input type="text" class="form-control" id="zip_code" name="zip_code"
                             placeholder="กรุณากรอกรหัสไปรษณีย์">
                     </div>
+
+{{-- -------------------------------------------------- --}}
+
                     <div class="form-group col-lg-4">
                         <label for="mobile_number" class="form-label">โทรศัพท์</label>
                         <input type="text" class="form-control" id="mobile_number" name="mobile_number"
                             placeholder="กรุณากรอกโทรศัพท์">
                     </div>
+
+{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}
+
 
                     <br>
                     <br>
@@ -228,6 +288,7 @@
                         <h5>ที่อยู่ปัจจุบัน</h5>
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="house_number_2" class="form-label">บ้านเลขที่</label>
@@ -235,6 +296,7 @@
                             placeholder="กรุณากรอกบ้านเลขที่">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="home_group_2" class="form-label">หมู่</label>
@@ -242,6 +304,7 @@
                             placeholder="กรุณากรอกหมู่">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="alley_2" class="form-label">ซอย</label>
@@ -249,6 +312,7 @@
                             placeholder="กรุณากรอกซอย">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="road_2" class="form-label">ถนน</label>
@@ -256,6 +320,7 @@
                             placeholder="กรุณากรอกถนน">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="subdistrict_2" class="form-label">แขวง</label>
@@ -263,32 +328,47 @@
                             placeholder="กรุณากรอกชื่อ-นามสกุล">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-3">
                         <label for="district_2" class="form-label">อำเภอ</label>
                         <input type="text" class="form-control" id="district_2" name="district_2"
                             placeholder="กรุณากรอกอำเภอ">
                     </div>
+
+{{-- -------------------------------------------------- --}}
+
                     <div class="form-group col-lg-3">
                         <label for="province_2" class="form-label">จังหวัด</label>
                         <input type="text" class="form-control" id="province_2" name="province_2"
                             placeholder="กรุณากรอกจังหวัด">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-4">
                         <label for="zip_code_2" class="form-label">รหัสไปรษณีย์</label>
                         <input type="text" class="form-control" id="zip_code_2" name="zip_code_2"
                             placeholder="กรุณากรอกรหัสไปรษณีย์">
                     </div>
+
+{{-- -------------------------------------------------- --}}
+
                     <div class="form-group col-lg-4">
                         <label for="mobile_number_2" class="form-label">โทรศัพท์</label>
                         <input type="text" class="form-control" id="mobile_number_2" name="mobile_number_2"
                             placeholder="กรุณากรอกโทรศัพท์">
                     </div>
+
+{{-- -------------------------------------------------- --}}
+
                     <div class="form-group col-lg-4">
                         <label for="mobile_number_2" class="form-label">email</label>
                         <input type="text" class="form-control" id="mobile_number_2" name="mobile_number_2"
                             placeholder="กรุณากรอกemail">
                     </div>
+
+{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}
 
 
                     <br>
@@ -300,12 +380,15 @@
                         <h5>สถานที่ฝึกงาน</h5>
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-3">
                         <label for="internship_location" class="form-label">ชื่อสถานที่ฝึกงาน</label>
                         <input type="text" class="form-control" id="internship_location" name="internship_location"
                             placeholder="กรุณากรอกชื่อสถานที่ฝึกงาน">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="internship_number" class="form-label">ตั้งอยู่เลขที่</label>
@@ -313,6 +396,7 @@
                             placeholder="กรุณากรอกตั้งอยู่เลขที่">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="internship_group" class="form-label">หมู่</label>
@@ -320,13 +404,15 @@
                             placeholder="กรุณากรอกหมู่">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-2">
                         <label for="internship_alley" class="form-label">ซอย</label>
-                        <input type="text" class="form-control" id="alley_2" name="alley_2"
+                        <input type="text" class="form-control" id="internship_alley" name="internship_alley"
                             placeholder="กรุณากรอกซอย">
                     </div>
 
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="internship_road" class="form-label">ถนน</label>
@@ -334,48 +420,65 @@
                             placeholder="กรุณากรอกถนน">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-3">
                         <label for="internship_subdistrict" class="form-label">แขวง</label>
                         <input type="text" class="form-control" id="internship_subdistrict"
-                            name="internship_subdistrict" placeholder="กรุณากรอกถนน">
+                            name="internship_subdistrict" placeholder="กรุณากรอกแขวง">
                     </div>
 
-
+{{-- -------------------------------------------------- --}}
 
                     <div class="form-group col-lg-3">
                         <label for="internship_district" class="form-label">อำเภอ</label>
                         <input type="text" class="form-control" id="internship_district" name="internship_district"
                             placeholder="กรุณากรอกอำเภอ">
                     </div>
+
+{{-- -------------------------------------------------- --}}
+
                     <div class="form-group col-lg-3">
                         <label for="internship_province" class="form-label">จังหวัด</label>
                         <input type="text" class="form-control" id="internship_province" name="internship_province"
                             placeholder="กรุณากรอกจังหวัด">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-4">
                         <label for="internship_zip_code" class="form-label">รหัสไปรษณีย์</label>
                         <input type="text" class="form-control" id="internship_zip_code" name="internship_zip_code"
                             placeholder="กรุณากรอกรหัสไปรษณีย์">
                     </div>
+
+{{-- -------------------------------------------------- --}}
+
                     <div class="form-group col-lg-4">
                         <label for="internship_mobile_number_2" class="form-label">โทรศัพท์</label>
                         <input type="text" class="form-control" id="internship_mobile_number_2"
                             name="internship_mobile_number_2" placeholder="กรุณากรอกโทรศัพท์">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-2">
                         <label for="date_start" class="form-label">ช่วงเวลาที่ฝึกงาน</label>
                         <input type="text"
-                            class="form-control datepicker-his {{ $errors->has('date') ? 'is-invalid' : '' }}"
-                            value="{{ old('date') ? old('date') : '' }}" id="date" name="date">
+                            class="form-control datepicker-his {{ $errors->has('date_start') ? 'is-invalid' : '' }}"
+                            value="{{ old('date_start') ? old('date_start') : '' }}" id="date_start" name="date_start">
                     </div>
+
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-2">
                         <label for="date_finish" class="form-label">ถึงวันที่</label>
                         <input type="text"
-                            class="form-control datepicker-his {{ $errors->has('date') ? 'is-invalid' : '' }}"
-                            value="{{ old('date') ? old('date') : '' }}" id="date" name="date">
+                            class="form-control datepicker-his {{ $errors->has('date_finish') ? 'is-invalid' : '' }}"
+                            value="{{ old('date_finish') ? old('date_finish') : '' }}" id="date_finish" name="date_finish">
                     </div>
+
+{{-- -------------------------------------------------- --}}                    
 
                     <div class="form-group col-lg-4">
                         <label for="controller_name" class="form-label">ชื่อผู้ควบคุมการฝึก</label>
@@ -383,8 +486,7 @@
                             placeholder="กรุณากรอกชื่อผู้ควบคุมการฝึก">
                     </div>
 
-
-
+{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}
 
                     <br>
                     <br>
@@ -395,12 +497,15 @@
                         <h5>ข้อมูลการทำงาน</h5>
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-5">
                         <label for="current_place_of_work" class="form-label">สถานที่ทำงานปัจจุบัน</label>
                         <input type="text" class="form-control" id="current_place_of_work"
                             name="current_place_of_work" placeholder="กรุณากรอกสถานที่ทำงานปัจจุบัน">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
 
                     <div class="form-group col-lg-3">
                         <label for="phone_internship" class="form-label">โทรศัพท์</label>
@@ -408,6 +513,7 @@
                             placeholder="กรุณากรอกโทรศัพท์">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
 
                     <div class="form-group col-lg-3">
                         <label for="fax" class="form-label">โทรสาร</label>
@@ -415,6 +521,7 @@
                             placeholder="กรุณากรอกโทรสาร">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
 
                     <div class="form-group col-lg-15">
                         <label for="work_experience" class="form-label">ประสบการณ์ในการทำงาน</label>
@@ -422,6 +529,7 @@
                             placeholder="กรุณากรอกประสบการณ์ในการทำงาน">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
 
                     <div class="form-group col-lg-15">
                         <label for="talent" class="form-label">ความรู้ความสามารถพิ้ศษ</label>
@@ -429,13 +537,15 @@
                             placeholder="กรุณากรอกความรู้ความสามารถพิ้ศษ">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-15">
                         <label for="special_interests" class="form-label">ความสนใจพิเศษ</label>
                         <input type="text" class="form-control" id="special_interests" name="special_interests"
                             placeholder="กรุณากรอกความสนใจพิเศษ">
                     </div>
 
-
+{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}                 
 
                     <br>
                     <br>
@@ -446,15 +556,18 @@
                         <h5>สถานภาพ</h5>
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-2">
-                        <label for="group" class="form-label">สถานภาพ</label>
-                        <select id="group" class="form-control" onchange="onSelectOur()">
-                            <option value="" selected disabled>เลือกสถานภาพ</option>
-                            <option value="ปกติ">โสด</option>
-                            <option value="พิเศษ">แต่งงาน</option>
-                            <option value="พิเศษ">หย่าร้าง</option>
+                        <label for="status" class="form-label">สถานภาพ</label>
+                        <select name="status" id="status" class="form-control">
+                            <option value="โสด" @if ($user->status == 'โสด') selected @endif>โสด</option>
+                            <option value="แต่งงาน" @if ($user->status == 'แต่งงาน') selected @endif>แต่งงาน</option>
+                            <option value="หย่าร้าง" @if ($user->status == 'หย่าร้าง') selected @endif>หย่าร้าง</option>
                         </select>
                     </div>
+
+{{-- -------------------------------------------------- --}}                                       
 
                     <div class="form-group col-lg-4">
                         <label for="husband_wife_name" class="form-label">ชื่อสามี/ภรรยา</label>
@@ -462,6 +575,7 @@
                             placeholder="กรุณากรอกชื่อสามี/ภรรยา">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
 
                     <div class="form-group col-lg-3">
                         <label for="husband_wife_occupation" class="form-label">อาชีพ</label>
@@ -469,12 +583,15 @@
                             name="husband_wife_occupation" placeholder="กรุณากรอกอาชีพ">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-1">
                         <label for="number_of_children" class="form-label">จำนวนบุตร</label>
                         <input type="text" class="form-control" id="number_of_children" name="number_of_children"
                             placeholder="กรุณากรอกจำนวนบุตร">
                     </div>
 
+{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}                 
 
                     <br>
                     <br>
@@ -485,6 +602,7 @@
                         <h5>กรณีฉุกเฉิน</h5>
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
 
                     <div class="form-group col-lg-4">
                         <label for="emergency_contact_person" class="form-label">บุคคลที่สามารถติดต่อได้</label>
@@ -492,6 +610,7 @@
                             name="emergency_contact_person" placeholder="กรุณากรอกบุคคลที่สามารถติดต่อได้">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
 
                     <div class="form-group col-lg-4">
                         <label for="emergency_contact_name" class="form-label">ที่อยู่</label>
@@ -499,12 +618,15 @@
                             name="emergency_contact_name" placeholder="กรุณากรอกที่อยู่">
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-4">
                         <label for="emergency_contact_phone" class="form-label">โทรศัพท์</label>
                         <input type="text" class="form-control" id="emergency_contact_phone"
                             name="emergency_contact_phone" placeholder="กรุณากรอกโทรศัพท์">
                     </div>
 
+{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}                 
 
                     <br>
                     <br>
@@ -515,34 +637,47 @@
                         <h5>ชื่ออาจารย์นิเทศก์</h5>
                     </div>
 
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-5">
                         <label for="teacher_name" class="form-label"></label>
                         <input type="text" class="form-control" id="teacher_name" name="teacher_name"
                             placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์">
                     </div>
+
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-5">
                         <label for="teacher_name_2" class="form-label"></label>
                         <input type="text" class="form-control" id="teacher_name_2" name="teacher_name_2"
                             placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์">
                     </div>
+
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-5">
                         <label for="teacher_name_3" class="form-label"></label>
                         <input type="text" class="form-control" id="teacher_name_3" name="teacher_name_3"
                             placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์">
                     </div>
+
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-5">
                         <label for="teacher_name_3" class="form-label"></label>
                         <input type="text" class="form-control" id="teacher_name_3" name="teacher_name_3"
                             placeholder="กรุณากรอกรายชื้ออาจารย์นิเทศก์">
                     </div>
+
+{{-- -------------------------------------------------- --}}                    
+
                     <div class="form-group col-lg-5">
                         <label for="teacher_department" class="form-label">ชื่อผู้นิเทศประจำหน่วยงาน</label>
                         <input type="text" class="form-control" id="teacher_department" name="teacher_department"
                             placeholder="กรุณากรอกชื่อผู้นิเทศประจำหน่วยงาน">
                     </div>
 
-
-
+{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}                 
 
                     <div class="form-group col-lg-12">
                         <button type="submit" class="btn btn-dark float-end" for="form-group-input">Send</button>

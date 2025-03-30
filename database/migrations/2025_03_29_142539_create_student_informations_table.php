@@ -25,7 +25,7 @@ return new class extends Migration
             $table->enum('degree_level', ['ปริญญาตรี', 'ปริญญาโท',])->nullable();
             $table->string('student_id')->nullable();
             $table->enum('sector', ['ปกติ', 'พิเศษ',])->nullable();
-            $table->enum('year_level', ['1', '2', '3', '4', '5'])->nullable();
+            // $table->enum('year_level', ['1', '2', '3', '4', '5'])->nullable();
             $table->string('group')->nullable();
             $table->string('term_year')->nullable();
             $table->string('year')->nullable();
@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('father_occupation')->nullable();
             $table->string('mother_name')->nullable();
             $table->string('mother_occupation')->nullable();
-            
+ // ---------------------------------------------------------------------------------------------------------------------------------------------------           
             // ภูมิลำเนา
             $table->string('house_number')->nullable();
             $table->string('home_group')->nullable();
@@ -44,7 +44,7 @@ return new class extends Migration
             $table->string('province')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('mobile_number')->nullable();
-
+// ---------------------------------------------------------------------------------------------------------------------------------------------------
             // ที่อยู่ปัจจุบัน
             $table->string('house_number_2')->nullable();
             $table->string('home_group_2')->nullable();
@@ -56,7 +56,7 @@ return new class extends Migration
             $table->string('zip_code_2')->nullable();
             $table->string('mobile_number_2')->nullable();
             $table->string('emall')->nullable();
-            
+// ---------------------------------------------------------------------------------------------------------------------------------------------------          
             // สถานที่ฝึกงาน
             $table->string('internship_location')->nullable();
             $table->string('internship_number')->nullable();
@@ -71,8 +71,7 @@ return new class extends Migration
             $table->date('date_start')->nullable();
             $table->date('date_finish')->nullable();
             $table->string('controller_name')->nullable();
-            
-
+ // ---------------------------------------------------------------------------------------------------------------------------------------------------           
             // ข้อมูลการทำงาน
             $table->string('current_place_of_work')->nullable();
             $table->string('phone_internship')->nullable();
@@ -80,18 +79,18 @@ return new class extends Migration
             $table->string('work_experience')->nullable();
             $table->string('talent')->nullable();
             $table->string('special_interests')->nullable();
-            
+ // ---------------------------------------------------------------------------------------------------------------------------------------------------           
             // สถานภาพ
             $table->enum('status', ['โสด', 'แต่งงาน', 'หย่าร้าง'])->nullable();
             $table->string('husband_wife_name')->nullable();
             $table->string('husband_wife_occupation')->nullable();
             $table->string('number_of_children')->nullable();
-            
+ // ---------------------------------------------------------------------------------------------------------------------------------------------------           
             // กรณีฉุกเฉิน
             $table->string('emergency_contact_person')->nullable();
             $table->string('emergency_contact_name')->nullable();
             $table->string('emergency_contact_phone')->nullable();
-            
+ // ---------------------------------------------------------------------------------------------------------------------------------------------------           
             // ชื่ออาจารย์นิเทศก์
             $table->string('teacher_name')->nullable();
             $table->string('teacher_name_2')->nullable();
