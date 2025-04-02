@@ -15,25 +15,16 @@
 
     <div class="container d-flex flex-column py-3">
         <br>
-        <h2 class="text-center">รายละเอียดของสถานที่ฝึกประสบการณ์วิชาชีพ<i class="fa-solid fa-house"></i></h2>
+        <h2 class="text-center">รายละเอียดของสถานที่ฝึกประสบการณ์วิชาชีพ <i class="fa-solid fa-building"></i></h2>
         <br>
         <div class="card shadow-sm rounded-3 my-auto col-md-11 mx-auto bg-white">
-
-{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}
-
-
                     <div class="form-group col-lg-15">
-                        <label for="detail" class="form-label">กรุณากรอกประวัติ สถานที่ตั้ง ลักษณะการประกอบการ</label>
-                        <textarea class="form-control" id="detail" name="detail" rows="10" cols="10"
-                            placeholder="กรุณากรอกประวัติ สถานที่ตั้ง ลักษณะการประกอบการ"></textarea>
+                        <center><label for="detail" class="form-label">กรุณากรอกประวัติ สถานที่ตั้ง ลักษณะการประกอบการ</label></center>
+                        <textarea class="form-control" id="detail" name="detail" rows="10" cols="10"></textarea>
                     </div>
-
-{{-- // --------------------------------------------------------------------------------------------------------------------------------------------------- --}}                 
-
                     <div class="form-group col-lg-12">
-                        <button type="submit" class="btn btn-dark float-end" for="form-group-input">Send</button>
+                        <button type="submit" class="btn btn-primary float-end" for="form-group-input">Send</button>
                     </div>
-
                 </form>
 
             </div>

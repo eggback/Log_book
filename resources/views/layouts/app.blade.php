@@ -8,8 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>ClassQR Check | @yield('title')</title>
-    <link rel="icon" type="images/png" href="{{ asset('images/qr-code-name.svg') }}">
+    <title>Log Book | @yield('title')</title>
+    <link rel="icon" type="images/png" href="{{ asset('images/Book.png') }}">
 
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -52,8 +52,8 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm navbar bg-dark border-bottom border-body"
-            data-bs-theme="dark">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm navbar bg-primary border-bottom border-body"
+            data-bs-theme="light">
             <div class="container-fluid">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('images/logo_1.png') }}" alt="Logo">
@@ -103,13 +103,13 @@
                                 <a class="nav-link glow-link" href="{{ route('map_location') }}">แผนที่สถานที่ฝึกงาน</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link glow-link" href="{{ route('summary_internship') }}">บันทึกประจำวัน</a>
+                                <a class="nav-link glow-link" href="{{ route('work_day') }}">บันทึกประจำวัน</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link glow-link" href="{{ route('teacher_notes') }}">บันทึกอาจารย์นิเทศก์</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link glow-link" href="{{ route('work_day') }}">สรุปผลการฝึกงาน</a>
+                                <a class="nav-link glow-link" href="{{ route('summary_internship') }}">สรุปผลการฝึกงาน</a>
                             </li>
                             
                             <li class="nav-item dropdown">
